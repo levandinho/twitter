@@ -29,7 +29,8 @@ public class TwitController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public TwitDTO getTwit(@PathVariable("id") Long id) {
-        return new TwitDTO(1L, "TestTwit", 1L);
+        Twit twit =  twitService.getTwit(id);
+        return mapperFacade.map(twit, TwitDTO.class);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

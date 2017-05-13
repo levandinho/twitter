@@ -1,5 +1,6 @@
 package com.lewandowski.twit.service.impl;
 
+import com.lewandowski.twit.dto.TwitDTO;
 import com.lewandowski.twit.entity.Twit;
 import com.lewandowski.twit.repository.TwitRepository;
 import com.lewandowski.twit.service.TwitService;
@@ -26,5 +27,10 @@ public class TwitServiceImpl implements TwitService {
     public List<Twit> getTwits() {
         List<Twit> twits = twitRepository.findAll();
         return twits;
+    }
+
+    @Override
+    public Twit getTwit(Long id) {
+        return twitRepository.getOne(id);
     }
 }
