@@ -1,8 +1,8 @@
-package com.lewandowski.twit.util;
+package com.lewandowski.twits.util;
 
 import com.lewandowski.commons.Mapper;
-import com.lewandowski.twit.dto.TwitDTO;
-import com.lewandowski.twit.entity.Twit;
+import com.lewandowski.twits.dto.TwitDTO;
+import com.lewandowski.twits.entity.Twit;
 import org.springframework.stereotype.Component;
 
 

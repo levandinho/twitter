@@ -1,12 +1,12 @@
-package com.lewandowski.twit.controller;
+package com.lewandowski.twits.controller;
 
 
-import com.lewandowski.twit.dto.TwitDTO;
-import com.lewandowski.twit.entity.Twit;
-import com.lewandowski.twit.service.TwitService;
-import com.lewandowski.twit.util.TwitMapper;
-import com.lewandowski.user.entity.User;
-import com.lewandowski.user.service.UserService;
+import com.lewandowski.twits.dto.TwitDTO;
+import com.lewandowski.twits.entity.Twit;
+import com.lewandowski.twits.service.TwitService;
+import com.lewandowski.twits.util.TwitMapper;
+import com.lewandowski.users.entity.User;
+import com.lewandowski.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

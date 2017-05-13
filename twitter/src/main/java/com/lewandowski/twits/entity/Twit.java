@@ -1,8 +1,7 @@
-package com.lewandowski.twit.entity;
+package com.lewandowski.twits.entity;
 
-import com.lewandowski.user.entity.User;
+import com.lewandowski.users.entity.User;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -17,7 +16,7 @@ public class Twit {
     private Long id;
 
     @NotNull
-    @Size(max = 140, message = "com.lewandowski.twit.entity.Twit.invalidSize")
+    @Size(max = 140, message = "com.lewandowski.twits.entity.Twit.invalidSize")
     private String message;
 
     @ManyToOne

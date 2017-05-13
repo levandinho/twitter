@@ -1,7 +1,7 @@
-package com.lewandowski.twit.service;
+package com.lewandowski.twits.service;
 
-import com.lewandowski.twit.dto.TwitDTO;
-import com.lewandowski.twit.entity.Twit;
+import com.lewandowski.twits.entity.Twit;
+import com.lewandowski.users.entity.User;
 
 import java.util.List;
 
