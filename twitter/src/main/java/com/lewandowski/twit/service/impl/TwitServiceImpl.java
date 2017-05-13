@@ -18,14 +18,14 @@ public class TwitServiceImpl implements TwitService {
     private TwitRepository twitRepository;
 
     @Override
-    public long save(Twit twit) {
+    public Twit save(Twit twit) {
         twitRepository.save(twit);
-        return twit.getId();
+        return twit;
     }
 
     @Override
-    public List<Twit> getTwits() {
-        List<Twit> twits = twitRepository.findAll();
+    public List<Twit> getTwitsForUser(Long userId) {
+        List<Twit> twits = twitRepository.findByAuthorIdOrderByDateAddedDesc(userId);
         return twits;
     }
 

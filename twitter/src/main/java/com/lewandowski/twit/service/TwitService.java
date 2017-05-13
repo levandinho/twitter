@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface TwitService {
 
-    public long save(Twit twit);
+    public Twit save(Twit twit);
 
-    public List<Twit> getTwits();
+    public List<Twit> getTwitsForUser(Long userId);
 
     Twit getTwit(Long id);
 }
