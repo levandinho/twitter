@@ -1,6 +1,8 @@
 package com.lewandowski.twit.entity;
 
 import com.lewandowski.user.entity.User;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,15 +17,14 @@ public class Twit {
     private Long id;
 
     @NotNull
-    @Size(max = 140,message = "com.lewandowski.twit.entity.Twit.invalidSize")
+    @Size(max = 140, message = "com.lewandowski.twit.entity.Twit.invalidSize")
     private String message;
 
     @ManyToOne
-    @NotNull
     private User author;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @NotNull
+    @CreationTimestamp
     private Date dateAdded;
 
 
@@ -35,7 +36,7 @@ public class Twit {
         Twit twit = (Twit) o;
 
         if (!author.equals(twit.author)) return false;
-        if (!dateAdded.equals(twit.dateAdded)) return false;
+        if (dateAdded != null ? !dateAdded.equals(twit.dateAdded) : twit.dateAdded != null) return false;
         if (!message.equals(twit.message)) return false;
 
         return true;
@@ -45,7 +46,7 @@ public class Twit {
     public int hashCode() {
         int result = message.hashCode();
         result = 31 * result + author.hashCode();
-        result = 31 * result + dateAdded.hashCode();
+        result = 31 * result + (dateAdded != null ? dateAdded.hashCode() : 0);
         return result;
     }
 

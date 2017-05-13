@@ -2,14 +2,15 @@ package com.lewandowski.twit.controller;
 
 
 import com.lewandowski.twit.dto.TwitDTO;
+import com.lewandowski.twit.entity.Twit;
 import com.lewandowski.twit.service.TwitService;
-import com.lewandowski.user.dto.UserDTO;
+import com.lewandowski.user.entity.User;
+import com.lewandowski.user.service.UserService;
+import ma.glasnost.orika.MapperFacade;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
 
@@ -20,14 +21,34 @@ public class TwitController {
     @Autowired
     private TwitService twitService;
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private MapperFacade mapperFacade;
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public TwitDTO getTwit(@PathVariable("id") Long id) {
-        return new TwitDTO(1L, "TestTwit", new UserDTO());
+        return new TwitDTO(1L, "TestTwit", 1L);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<TwitDTO> getTwits() {
-        return twitService.getTwits();
+        List<TwitDTO> results = mapperFacade.mapAsList(twitService.getTwits(), TwitDTO.class);
+        return results;
     }
 
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public long saveTwit(@RequestBody @Valid TwitDTO twitDTO) {
+        User user = userService.findById(twitDTO.getAuthorId());
+        //If user doesn't exist, simply create one
+        if (user == null) {
+            user = userService.addUser(new User(TwitModuleConsts.ANONYMOUS + new Date().getTime()));
+        }
+        Twit twit = mapperFacade.map(twitDTO, Twit.class);
+        twit.setAuthor(user);
+
+        return twitService.save(twit);
+
+    }
 }

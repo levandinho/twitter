@@ -1,12 +1,12 @@
 package com.lewandowski.twit.service;
 
-import com.lewandowski.twit.dto.TwitDTO;
+import com.lewandowski.twit.entity.Twit;
 
 import java.util.List;
 
 public interface TwitService {
 
-    public void save(TwitDTO twit);
+    public long save(Twit twit);
 
-    public List<TwitDTO> getTwits();
+    public List<Twit> getTwits();
 }

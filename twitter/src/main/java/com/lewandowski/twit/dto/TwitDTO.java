@@ -10,18 +10,21 @@ public class TwitDTO implements Serializable {
 
     private static final long serialVersionUID = 32134123L;
 
-    public TwitDTO(Long id, String message, UserDTO author) {
-        this.id = id;
-        this.message = message;
-        this.author = author;
-    }
-
     private Long id;
     @Size(max = 140, message = "com.lewandowski.twit.dto.TwitDTO.invalidSize")
     @NotEmpty
     private String message;
 
-    private UserDTO author;
+    private Long authorId;
+
+    public TwitDTO() {
+    }
+
+    public TwitDTO(Long id, String message, Long author) {
+        this.id = id;
+        this.message = message;
+        this.authorId = author;
+    }
 
     public Long getId() {
         return id;
@@ -39,11 +42,11 @@ public class TwitDTO implements Serializable {
         this.message = message;
     }
 
-    public UserDTO getAuthor() {
-        return author;
+    public Long getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor(UserDTO author) {
-        this.author = author;
+    public void setAuthorId(Long author) {
+        this.authorId = author;
     }
 }
