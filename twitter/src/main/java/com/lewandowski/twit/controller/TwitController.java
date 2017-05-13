@@ -4,6 +4,7 @@ package com.lewandowski.twit.controller;
 import com.lewandowski.twit.dto.TwitDTO;
 import com.lewandowski.twit.entity.Twit;
 import com.lewandowski.twit.service.TwitService;
+import com.lewandowski.twit.util.TwitModuleConsts;
 import com.lewandowski.user.entity.User;
 import com.lewandowski.user.service.UserService;
 import ma.glasnost.orika.MapperFacade;

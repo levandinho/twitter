@@ -1,4 +1,4 @@
-package com.lewandowski.twit.controller;
+package com.lewandowski.twit.util;
 
 import com.lewandowski.twit.dto.TwitDTO;
 import com.lewandowski.twit.entity.Twit;
