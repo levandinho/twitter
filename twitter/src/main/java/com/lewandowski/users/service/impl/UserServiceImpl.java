@@ -1,8 +1,8 @@
-package com.lewandowski.user.service.impl;
+package com.lewandowski.users.service.impl;
 
-import com.lewandowski.user.entity.User;
-import com.lewandowski.user.repository.UserRepository;
-import com.lewandowski.user.service.UserService;
+import com.lewandowski.users.entity.User;
+import com.lewandowski.users.repository.UserRepository;
+import com.lewandowski.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,5 +44,28 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> find(String query) {
         return userRepository.findByUsernameLike(query);
+    }
+
+    @Override
+    public List<User> getFollowers(Long userId) {
+        User user = userRepository.findOne(userId);
+        return user.getFollowees();
+    }
+
+    @Override
+    public User addFollowee(Long userId, Long followeeId) {
+        User user = userRepository.findOne(userId);
+        User followee = userRepository.findOne(followeeId);
+        user.getFollowees().add(followee);
+        userRepository.save(user);
+        return user;
+    }
+
+    @Override
+    public User removeFollowee(Long userId, Long followeeId) {
+        User user = userRepository.findOne(userId);
+        User followee = userRepository.findOne(followeeId);
+        user.getFollowees().remove(followee);
+        return user;
     }
 }

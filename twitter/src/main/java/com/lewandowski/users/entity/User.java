@@ -1,11 +1,9 @@
-package com.lewandowski.user.entity;
+package com.lewandowski.users.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class User {
@@ -18,6 +16,9 @@ public class User {
     @Size(min = 3, max = 25)
     @Column(unique = true)
     private String username;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<User> followees;
 
     public User(String username) {
         this.username = username;
@@ -40,6 +41,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public List<User> getFollowees() {
+        return followees;
+    }
+
+    public void setFollowees(List<User> followees) {
+        this.followees = followees;
     }
 
     @Override

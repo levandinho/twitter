@@ -1,6 +1,6 @@
-package com.lewandowski.user.dto;
+package com.lewandowski.users.dto;
 
-import com.lewandowski.user.entity.User;
+import com.lewandowski.users.entity.User;
 
 import java.io.Serializable;
 

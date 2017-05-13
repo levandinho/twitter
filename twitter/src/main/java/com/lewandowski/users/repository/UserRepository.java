@@ -1,6 +1,6 @@
-package com.lewandowski.user.repository;
+package com.lewandowski.users.repository;
 
-import com.lewandowski.user.entity.User;
+import com.lewandowski.users.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

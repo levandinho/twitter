@@ -1,8 +1,8 @@
-package com.lewandowski.user.util;
+package com.lewandowski.users.util;
 
 import com.lewandowski.commons.Mapper;
-import com.lewandowski.user.dto.UserDTO;
-import com.lewandowski.user.entity.User;
+import com.lewandowski.users.dto.UserDTO;
+import com.lewandowski.users.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component
