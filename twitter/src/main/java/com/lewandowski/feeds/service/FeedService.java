@@ -7,5 +7,10 @@ import java.util.List;
 
 public interface FeedService {
 
+    /**
+     * Retrieves a list of twits which represents a user's timeline (collection of twits of the followees)
+     *
+     * @param user The user for whom the list is returned
+     */
     public List<Twit> getFeed(User user);
 }
