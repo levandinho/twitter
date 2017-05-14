@@ -3,10 +3,6 @@
 # TWITTER
 
 
-* foo
- * bar
- * baz
-
 To run the project from the source code, you will need to have Maven installed (https://maven.apache.org/).
 
 Clone the repository, then in the root directory (where the pom.xml is located) run 
