@@ -48,7 +48,7 @@ public class TwitController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public TwitDTO saveTwit(@PathVariable("userId") Long userId, @RequestBody @Valid TwitDTO twitDTO) {
         LOG.info("Received a request for saveTwit: " + twitDTO);
-        User user = userService.findById(userId);
+        User user = userService.getUser(userId);
         Twit twit = twitMapper.mapDtoToEntity(twitDTO);
         twit.setAuthor(user);
         return twitMapper.mapEntityToDto(twitService.save(twit));

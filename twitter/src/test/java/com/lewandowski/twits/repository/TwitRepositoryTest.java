@@ -71,14 +71,14 @@ public class TwitRepositoryTest {
     }
 
     @Test(expected = ConstraintViolationException.class)
-    public void should_throw_exception_given_empty_message() {
+    public void shouldnt_throw_exception_given_empty_message() {
         Twit twit = new Twit();
 
         twitRepository.save(twit);
     }
 
     @Test(expected = ConstraintViolationException.class)
-    public void should_throw_exception_given_bad_message() {
+    public void shouldnt_throw_exception_given_bad_message() {
         Twit twit = new Twit();
         twit.setMessage(MESSAGE_150);
 
