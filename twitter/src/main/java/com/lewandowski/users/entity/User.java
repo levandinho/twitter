@@ -1,5 +1,7 @@
 package com.lewandowski.users.entity;
 
+import com.lewandowski.users.util.UserModuleConstants;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,7 +15,7 @@ public class User {
     private Long id;
 
     @NotNull
-    @Size(min = 3, max = 25)
+    @Size(min = UserModuleConstants.USERNAME_MIN_SIZE, max = UserModuleConstants.USERNAME_MAX_SIZE)
     @Column(unique = true)
     private String username;
 

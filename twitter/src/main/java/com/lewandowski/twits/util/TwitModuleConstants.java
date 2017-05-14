@@ -1,5 +1,5 @@
 package com.lewandowski.twits.util;
 
-public class TwitModuleConsts {
+public class TwitModuleConstants {
     public static final String ANONYMOUS = "Anonymous";
 }

@@ -12,7 +12,7 @@ public class UserMapper implements Mapper<User, UserDTO> {
     public User mapDtoToEntity(UserDTO dto) {
         User user = new User();
         user.setId(dto.getId());
-        user.setUsername(dto.getName());
+        user.setUsername(dto.getUsername());
         return user;
     }
 

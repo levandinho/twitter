@@ -61,6 +61,7 @@ public class UserServiceImpl implements UserService {
     public User addFollowee(Long userId, Long followeeId) {
         User user = userRepository.findOne(userId);
         User followee = userRepository.findOne(followeeId);
+        //TODO: check if not already there
         user.getFollowees().add(followee);
         userRepository.save(user);
         return user;

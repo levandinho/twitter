@@ -1,6 +1,7 @@
 package com.lewandowski.users.dto;
 
 import com.lewandowski.users.entity.User;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import java.io.Serializable;
 
@@ -10,29 +11,27 @@ public class UserDTO implements Serializable {
 
     private Long id;
 
-    private String name;
+    @NotEmpty
+    private String username;
 
     public UserDTO(User author) {
-        this.name = author.getUsername();
+        this.username = author.getUsername();
         this.id = author.getId();
+    }
+
+    public UserDTO(String username, Long id) {
+        this.username = username;
+        this.id = id;
     }
 
     public UserDTO() {
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public String getUsername() {
+        return username;
     }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }
