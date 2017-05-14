@@ -18,7 +18,6 @@ import javax.validation.ConstraintViolationException;
 @SpringBootTest
 public class TwitRepositoryTest {
 
-
     @Autowired
     private TwitRepository twitRepository;
 
@@ -27,7 +26,6 @@ public class TwitRepositoryTest {
 
     @Test
     public void should_add_twit_given_valid_fields() {
-
         Twit twit = new Twit();
         twit.setMessage(MESSAGE);
 
@@ -39,7 +37,6 @@ public class TwitRepositoryTest {
 
     @Test
     public void should_add_twit_given_valid_user() {
-
         User user = new User(USERNAME);
         userRepository.save(user);
 
@@ -55,10 +52,8 @@ public class TwitRepositoryTest {
     }
 
     @Test(expected = InvalidDataAccessApiUsageException.class)
-    public void should_add_twit_given_transient_user() {
-
+    public void shouldnt_add_twit_given_transient_user() {
         User user = new User(USERNAME);
-
         Twit twit = new Twit();
         twit.setMessage(MESSAGE);
         twit.setAuthor(user);
@@ -67,7 +62,6 @@ public class TwitRepositoryTest {
 
         Assert.assertNotNull(twit.getId());
         Assert.assertTrue(twit.getAuthor().equals(user));
-
     }
 
     @Test(expected = ConstraintViolationException.class)
