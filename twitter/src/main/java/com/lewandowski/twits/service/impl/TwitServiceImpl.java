@@ -6,6 +6,7 @@ import com.lewandowski.twits.service.TwitService;
 import com.lewandowski.users.entity.User;
 import com.lewandowski.users.repository.UserRepository;
 import com.lewandowski.users.service.UserService;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +20,9 @@ public class TwitServiceImpl implements TwitService {
     @Autowired
     private TwitRepository twitRepository;
 
+    @Autowired
+    private UserService userService;
+
     @Override
     public Twit save(Twit twit) {
         twitRepository.save(twit);
@@ -27,8 +31,9 @@ public class TwitServiceImpl implements TwitService {
 
     @Override
     public List<Twit> getTwitsForUser(Long userId) {
-        List<Twit> twits = twitRepository.findByAuthorIdOrderByDateAddedDesc(userId);
-        return twits;
+        User user = userService.getUser(userId);
+        Hibernate.initialize(user.getTwits());
+        return user.getTwits();
     }
 
     @Override

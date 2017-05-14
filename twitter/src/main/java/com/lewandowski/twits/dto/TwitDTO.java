@@ -14,7 +14,7 @@ public class TwitDTO implements Serializable {
     private Long id;
 
     @Size(max = 140, message = TwitModuleConstants.INVALID_SIZE)
-    @NotEmpty
+    @NotEmpty(message = TwitModuleConstants.NOT_EMPTY_MESSAGE)
     private String message;
 
     private Long authorId;

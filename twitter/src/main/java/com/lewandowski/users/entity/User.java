@@ -1,5 +1,6 @@
 package com.lewandowski.users.entity;
 
+import com.lewandowski.twits.entity.Twit;
 import com.lewandowski.users.util.UserModuleConstants;
 
 import javax.persistence.*;
@@ -15,13 +16,16 @@ public class User {
     @GeneratedValue
     private Long id;
 
-    @NotNull
+    @NotNull(message = UserModuleConstants.USERNAME_NULL)
     @Size(min = UserModuleConstants.USERNAME_MIN_SIZE, max = UserModuleConstants.USERNAME_MAX_SIZE, message = UserModuleConstants.INVALID_USERNAME)
     @Column(unique = true)
     private String username;
 
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<User> followees;
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE)
+    private List<Twit> twits;
 
     public User(String username) {
         this.username = username;
@@ -52,6 +56,14 @@ public class User {
 
     public void setFollowees(Set<User> followees) {
         this.followees = followees;
+    }
+
+    public List<Twit> getTwits() {
+        return twits;
+    }
+
+    public void setTwits(List<Twit> twits) {
+        this.twits = twits;
     }
 
     @Override

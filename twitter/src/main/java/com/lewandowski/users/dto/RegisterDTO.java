@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 
 public class RegisterDTO {
 
-    @NotEmpty
+    @NotEmpty(message = UserModuleConstants.USERNAME_NULL)
     @Size(min = UserModuleConstants.USERNAME_MIN_SIZE, max = UserModuleConstants.USERNAME_MAX_SIZE, message = UserModuleConstants.INVALID_USERNAME)
     private String username;
 
