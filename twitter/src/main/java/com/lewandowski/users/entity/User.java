@@ -16,7 +16,7 @@ public class User {
     private Long id;
 
     @NotNull
-    @Size(min = UserModuleConstants.USERNAME_MIN_SIZE, max = UserModuleConstants.USERNAME_MAX_SIZE)
+    @Size(min = UserModuleConstants.USERNAME_MIN_SIZE, max = UserModuleConstants.USERNAME_MAX_SIZE, message = UserModuleConstants.INVALID_USERNAME)
     @Column(unique = true)
     private String username;
 

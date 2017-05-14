@@ -1,8 +1,10 @@
 package com.lewandowski.users.dto;
 
 import com.lewandowski.users.entity.User;
+import com.lewandowski.users.util.UserModuleConstants;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 public class UserDTO implements Serializable {
@@ -12,6 +14,7 @@ public class UserDTO implements Serializable {
     private Long id;
 
     @NotEmpty
+    @Size(min = UserModuleConstants.USERNAME_MIN_SIZE, max = UserModuleConstants.USERNAME_MAX_SIZE, message = UserModuleConstants.INVALID_USERNAME)
     private String username;
 
     public UserDTO(User author) {

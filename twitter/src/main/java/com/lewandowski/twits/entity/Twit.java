@@ -1,5 +1,6 @@
 package com.lewandowski.twits.entity;
 
+import com.lewandowski.twits.util.TwitModuleConstants;
 import com.lewandowski.users.entity.User;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -16,7 +17,7 @@ public class Twit {
     private Long id;
 
     @NotNull
-    @Size(max = 140, message = "com.lewandowski.twits.entity.Twit.invalidSize")
+    @Size(max = 140, message = TwitModuleConstants.INVALID_SIZE)
     private String message;
 
     @ManyToOne

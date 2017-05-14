@@ -1,5 +1,6 @@
 package com.lewandowski.twits.dto;
 
+import com.lewandowski.twits.util.TwitModuleConstants;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.Size;
@@ -12,7 +13,7 @@ public class TwitDTO implements Serializable {
 
     private Long id;
 
-    @Size(max = 140, message = "TwitDTO.invalidSize")
+    @Size(max = 140, message = TwitModuleConstants.INVALID_SIZE)
     @NotEmpty
     private String message;
 

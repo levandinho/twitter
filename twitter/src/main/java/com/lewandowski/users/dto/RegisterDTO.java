@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 public class RegisterDTO {
 
     @NotEmpty
-    @Size(max = UserModuleConstants.USERNAME_MAX_SIZE, min= UserModuleConstants.USERNAME_MIN_SIZE)
+    @Size(min = UserModuleConstants.USERNAME_MIN_SIZE, max = UserModuleConstants.USERNAME_MAX_SIZE, message = UserModuleConstants.INVALID_USERNAME)
     private String username;
 
     private TwitDTO firstTwit;
