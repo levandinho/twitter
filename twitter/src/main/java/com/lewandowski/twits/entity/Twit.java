@@ -35,17 +35,19 @@ public class Twit {
 
         Twit twit = (Twit) o;
 
-        if (!author.equals(twit.author)) return false;
+        if (author != null ? !author.equals(twit.author) : twit.author != null) return false;
         if (dateAdded != null ? !dateAdded.equals(twit.dateAdded) : twit.dateAdded != null) return false;
-        if (!message.equals(twit.message)) return false;
+        if (id != null ? !id.equals(twit.id) : twit.id != null) return false;
+        if (message != null ? !message.equals(twit.message) : twit.message != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = message.hashCode();
-        result = 31 * result + author.hashCode();
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (message != null ? message.hashCode() : 0);
+        result = 31 * result + (author != null ? author.hashCode() : 0);
         result = 31 * result + (dateAdded != null ? dateAdded.hashCode() : 0);
         return result;
     }
