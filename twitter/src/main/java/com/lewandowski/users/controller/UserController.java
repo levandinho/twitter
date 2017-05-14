@@ -42,7 +42,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<UserDTO> findUsers(@RequestParam("query") String query) {
+    public List<UserDTO> findUsers(@RequestParam(value = "query", required = false) String query) {
         List<User> users = userService.find(query);
         return userMapper.mapEntityToDto(users);
     }

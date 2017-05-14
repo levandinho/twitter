@@ -43,7 +43,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> find(String query) {
-        return userRepository.findByUsernameLike(query);
+        if (query != null) {
+            return userRepository.findByUsernameLike("%" + query + "%");
+        } else {
+            return userRepository.findAll();
+        }
+
     }
 
     @Override
