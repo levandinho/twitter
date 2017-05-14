@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import static com.lewandowski.twits.TwitTestConstants.*;
 
 import javax.validation.ConstraintViolationException;
 
@@ -17,10 +18,6 @@ import javax.validation.ConstraintViolationException;
 @SpringBootTest
 public class TwitRepositoryTest {
 
-    public static final String MESSAGE = "Test Message";
-    public static final String MESSAGE_150 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-            "Donec feugiat feugiat finibus. Vivamus iaculis purus in commodo fringilla. Aliquam in nullam.";
-    private static final String USERNAME = "testUser";
 
     @Autowired
     private TwitRepository twitRepository;

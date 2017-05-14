@@ -19,9 +19,6 @@ public class TwitServiceImpl implements TwitService {
     @Autowired
     private TwitRepository twitRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
     @Override
     public Twit save(Twit twit) {
         twitRepository.save(twit);
