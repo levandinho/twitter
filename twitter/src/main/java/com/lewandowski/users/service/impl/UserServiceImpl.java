@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -33,7 +35,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(long userId) {
-        return userRepository.findOne(userId);
+        User user = userRepository.findOne(userId);
+        if (user == null) {
+            throw new EntityNotFoundException("User with provided id: " + userId + " cannot be found in the system");
+        }
+        return user;
     }
 
     @Override
@@ -48,20 +54,18 @@ public class UserServiceImpl implements UserService {
         } else {
             return userRepository.findAll();
         }
-
     }
 
     @Override
-    public List<User> getFollowers(Long userId) {
-        User user = userRepository.findOne(userId);
+    public Set<User> getFollowers(Long userId) {
+        User user = getUser(userId);
         return user.getFollowees();
     }
 
     @Override
     public User addFollowee(Long userId, Long followeeId) {
-        User user = userRepository.findOne(userId);
-        User followee = userRepository.findOne(followeeId);
-        //TODO: check if not already there
+        User user = getUser(userId);
+        User followee = getUser(followeeId);
         user.getFollowees().add(followee);
         userRepository.save(user);
         return user;
@@ -69,8 +73,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User removeFollowee(Long userId, Long followeeId) {
-        User user = userRepository.findOne(userId);
-        User followee = userRepository.findOne(followeeId);
+        User user = getUser(userId);
+        User followee = getUser(followeeId);
         user.getFollowees().remove(followee);
         return user;
     }

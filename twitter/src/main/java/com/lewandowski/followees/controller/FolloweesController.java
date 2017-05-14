@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/users/{userId}/followees")
@@ -23,7 +24,7 @@ public class FolloweesController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<UserDTO> getFollowees(@PathVariable(value = "userId", required = true) Long userId) {
-        List<User> folowees = userService.getFollowers(userId);
+        Set<User> folowees = userService.getFollowers(userId);
         return userMapper.mapEntityToDto(folowees);
     }
 

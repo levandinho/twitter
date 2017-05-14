@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -20,7 +21,7 @@ public class User {
     private String username;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    private List<User> followees;
+    private Set<User> followees;
 
     public User(String username) {
         this.username = username;
@@ -45,11 +46,11 @@ public class User {
         this.username = username;
     }
 
-    public List<User> getFollowees() {
+    public Set<User> getFollowees() {
         return followees;
     }
 
-    public void setFollowees(List<User> followees) {
+    public void setFollowees(Set<User> followees) {
         this.followees = followees;
     }
 

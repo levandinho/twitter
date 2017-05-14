@@ -3,6 +3,7 @@ package com.lewandowski.users.service;
 import com.lewandowski.users.entity.User;
 
 import java.util.List;
+import java.util.Set;
 
 public interface UserService {
     User findById(Long authorId);
@@ -17,7 +18,7 @@ public interface UserService {
 
     List<User> find(String query);
 
-    List<User> getFollowers(Long userId);
+    Set<User> getFollowers(Long userId);
 
     User addFollowee(Long userId, Long followeeId);
 

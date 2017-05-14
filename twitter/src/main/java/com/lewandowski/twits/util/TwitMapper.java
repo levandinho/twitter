@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 public class TwitMapper implements Mapper<Twit, TwitDTO>{
     @Override
     public Twit mapDtoToEntity(TwitDTO dto) {
+        if (dto == null) {
+            return null;
+        }
         Twit twit = new Twit();
         twit.setId(dto.getId());
         twit.setMessage(dto.getMessage());
@@ -18,6 +21,9 @@ public class TwitMapper implements Mapper<Twit, TwitDTO>{
 
     @Override
     public TwitDTO mapEntityToDto(Twit entity) {
+        if (entity == null) {
+            return null;
+        }
         TwitDTO twitDTO = new TwitDTO(entity.getId(), entity.getMessage(), entity.getAuthor().getId());
         return twitDTO;
     }
