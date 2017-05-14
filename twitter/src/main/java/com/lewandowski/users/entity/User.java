@@ -1,6 +1,6 @@
 package com.lewandowski.users.entity;
 
-import com.lewandowski.twits.entity.Twit;
+import com.lewandowski.tweets.entity.Tweet;
 import com.lewandowski.users.util.UserModuleConstants;
 
 import javax.persistence.*;
@@ -25,7 +25,7 @@ public class User {
     private Set<User> followees;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE)
-    private List<Twit> twits;
+    private List<Tweet> tweets;
 
     public User(String username) {
         this.username = username;
@@ -58,12 +58,12 @@ public class User {
         this.followees = followees;
     }
 
-    public List<Twit> getTwits() {
-        return twits;
+    public List<Tweet> getTweets() {
+        return tweets;
     }
 
-    public void setTwits(List<Twit> twits) {
-        this.twits = twits;
+    public void setTweets(List<Tweet> tweets) {
+        this.tweets = tweets;
     }
 
     @Override

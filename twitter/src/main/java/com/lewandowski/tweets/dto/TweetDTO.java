@@ -1,30 +1,30 @@
-package com.lewandowski.twits.dto;
+package com.lewandowski.tweets.dto;
 
-import com.lewandowski.twits.util.TwitModuleConstants;
+import com.lewandowski.tweets.util.TweetModuleConstants;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
-public class TwitDTO implements Serializable {
+public class TweetDTO implements Serializable {
 
     private static final long serialVersionUID = 32134123L;
 
     private Long id;
 
-    @Size(max = 140, message = TwitModuleConstants.INVALID_SIZE)
-    @NotEmpty(message = TwitModuleConstants.NOT_EMPTY_MESSAGE)
+    @Size(max = 140, message = TweetModuleConstants.INVALID_SIZE)
+    @NotEmpty(message = TweetModuleConstants.NOT_EMPTY_MESSAGE)
     private String message;
 
     private Long authorId;
 
     private Date dateAdded;
 
-    public TwitDTO() {
+    public TweetDTO() {
     }
 
-    public TwitDTO(Long id, String message, Long author, Date dateAdded) {
+    public TweetDTO(Long id, String message, Long author, Date dateAdded) {
         this.id = id;
         this.message = message;
         this.authorId = author;
@@ -49,7 +49,7 @@ public class TwitDTO implements Serializable {
 
     @Override
     public String toString() {
-        return "TwitDTO{" +
+        return "TweetDTO{" +
                 "id=" + id +
                 ", message='" + message + '\'' +
                 ", authorId=" + authorId +

@@ -1,9 +1,9 @@
 package com.lewandowski.feeds.controller;
 
 import com.lewandowski.feeds.service.FeedService;
-import com.lewandowski.twits.dto.TwitDTO;
-import com.lewandowski.twits.entity.Twit;
-import com.lewandowski.twits.util.TwitMapper;
+import com.lewandowski.tweets.dto.TweetDTO;
+import com.lewandowski.tweets.entity.Tweet;
+import com.lewandowski.tweets.util.TweetMapper;
 import com.lewandowski.users.entity.User;
 import com.lewandowski.users.service.UserService;
 import org.slf4j.Logger;
@@ -29,14 +29,14 @@ public class FeedsController {
     private UserService userService;
 
     @Autowired
-    private TwitMapper twitMapper;
+    private TweetMapper tweetMapper;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<TwitDTO> getFeed(@PathVariable(value = "userId", required = true) Long userId) {
+    public List<TweetDTO> getFeed(@PathVariable(value = "userId", required = true) Long userId) {
         LOG.info("Received a request for getFeed for user " + userId);
         User user = userService.findById(userId);
-        List<Twit> twits = feedService.getFeed(user);
-        LOG.debug("returning twits: " + twits);
-        return twitMapper.mapEntityToDto(twits);
+        List<Tweet> tweets = feedService.getFeed(user);
+        LOG.debug("returning tweets: " + tweets);
+        return tweetMapper.mapEntityToDto(tweets);
     }
 }

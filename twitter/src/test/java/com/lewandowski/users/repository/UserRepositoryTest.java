@@ -1,6 +1,6 @@
 package com.lewandowski.users.repository;
 
-import com.lewandowski.twits.repository.TwitRepository;
+import com.lewandowski.tweets.repository.TweetRepository;
 import com.lewandowski.users.entity.User;
 import org.junit.Assert;
 import org.junit.Before;
@@ -27,7 +27,7 @@ public class UserRepositoryTest {
     private UserRepository userRepository;
 
     @Autowired
-    private TwitRepository twitRepository;
+    private TweetRepository tweetRepository;
 
     @Test
     public void should_add_user_given_valid_fields() {

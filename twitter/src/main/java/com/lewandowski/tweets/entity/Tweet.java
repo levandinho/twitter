@@ -1,6 +1,6 @@
-package com.lewandowski.twits.entity;
+package com.lewandowski.tweets.entity;
 
-import com.lewandowski.twits.util.TwitModuleConstants;
+import com.lewandowski.tweets.util.TweetModuleConstants;
 import com.lewandowski.users.entity.User;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -10,14 +10,14 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
-public class Twit {
+public class Tweet {
 
     @Id
     @GeneratedValue
     private Long id;
 
     @NotNull
-    @Size(max = 140, message = TwitModuleConstants.INVALID_SIZE)
+    @Size(max = 140, message = TweetModuleConstants.INVALID_SIZE)
     private String message;
 
     @ManyToOne
@@ -31,14 +31,14 @@ public class Twit {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Twit)) return false;
+        if (!(o instanceof Tweet)) return false;
 
-        Twit twit = (Twit) o;
+        Tweet tweet = (Tweet) o;
 
-        if (author != null ? !author.equals(twit.author) : twit.author != null) return false;
-        if (dateAdded != null ? !dateAdded.equals(twit.dateAdded) : twit.dateAdded != null) return false;
-        if (id != null ? !id.equals(twit.id) : twit.id != null) return false;
-        if (message != null ? !message.equals(twit.message) : twit.message != null) return false;
+        if (author != null ? !author.equals(tweet.author) : tweet.author != null) return false;
+        if (dateAdded != null ? !dateAdded.equals(tweet.dateAdded) : tweet.dateAdded != null) return false;
+        if (id != null ? !id.equals(tweet.id) : tweet.id != null) return false;
+        if (message != null ? !message.equals(tweet.message) : tweet.message != null) return false;
 
         return true;
     }
@@ -54,7 +54,7 @@ public class Twit {
 
     @Override
     public String toString() {
-        return "Twit{" +
+        return "Tweet{" +
                 "message='" + message + '\'' +
                 ", author=" + author +
                 ", dateAdded=" + dateAdded +

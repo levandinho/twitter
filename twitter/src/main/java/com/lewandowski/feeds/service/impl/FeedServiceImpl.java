@@ -1,8 +1,8 @@
 package com.lewandowski.feeds.service.impl;
 
 import com.lewandowski.feeds.service.FeedService;
-import com.lewandowski.twits.entity.Twit;
-import com.lewandowski.twits.repository.TwitRepository;
+import com.lewandowski.tweets.entity.Tweet;
+import com.lewandowski.tweets.repository.TweetRepository;
 import com.lewandowski.users.entity.User;
 import com.lewandowski.users.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +16,10 @@ import java.util.List;
 public class FeedServiceImpl implements FeedService {
 
     @Autowired
-    private TwitRepository twitRepository;
+    private TweetRepository tweetRepository;
 
     @Override
-    public List<Twit> getFeed(User user) {
-        return twitRepository.findByAuthorInOrderByDateAddedDesc(user.getFollowees());
+    public List<Tweet> getFeed(User user) {
+        return tweetRepository.findByAuthorInOrderByDateAddedDesc(user.getFollowees());
     }
 }
