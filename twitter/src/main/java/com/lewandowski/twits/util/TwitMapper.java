@@ -24,7 +24,7 @@ public class TwitMapper implements Mapper<Twit, TwitDTO>{
         if (entity == null) {
             return null;
         }
-        TwitDTO twitDTO = new TwitDTO(entity.getId(), entity.getMessage(), entity.getAuthor().getId());
+        TwitDTO twitDTO = new TwitDTO(entity.getId(), entity.getMessage(), entity.getAuthor().getId(), entity.getDateAdded());
         return twitDTO;
     }
 }

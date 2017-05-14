@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Date;
 
 public class TwitDTO implements Serializable {
 
@@ -17,13 +18,16 @@ public class TwitDTO implements Serializable {
 
     private Long authorId;
 
+    private Date dateAdded;
+
     public TwitDTO() {
     }
 
-    public TwitDTO(Long id, String message, Long author) {
+    public TwitDTO(Long id, String message, Long author, Date dateAdded) {
         this.id = id;
         this.message = message;
         this.authorId = author;
+        this.dateAdded = dateAdded;
     }
 
     public Long getId() {
@@ -36,5 +40,19 @@ public class TwitDTO implements Serializable {
 
     public Long getAuthorId() {
         return authorId;
+    }
+
+    public Date getDateAdded() {
+        return dateAdded;
+    }
+
+    @Override
+    public String toString() {
+        return "TwitDTO{" +
+                "id=" + id +
+                ", message='" + message + '\'' +
+                ", authorId=" + authorId +
+                ", dateAdded=" + dateAdded +
+                '}';
     }
 }

@@ -11,5 +11,7 @@ public interface TwitService {
 
     public List<Twit> getTwitsForUser(Long userId);
 
-    Twit getTwit(Long id);
+    public Twit getTwit(Long id);
+
+    public void delete(Long id);
 }

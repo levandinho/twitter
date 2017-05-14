@@ -35,6 +35,11 @@ public class TwitServiceImpl implements TwitService {
     }
 
     @Override
+    public void delete(Long id) {
+        twitRepository.delete(id);
+    }
+
+    @Override
     public Twit getTwit(Long id) {
         return twitRepository.getOne(id);
     }

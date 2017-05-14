@@ -28,4 +28,12 @@ public class RegisterDTO {
     public TwitDTO getFirstTwit() {
         return firstTwit;
     }
+
+    @Override
+    public String toString() {
+        return "RegisterDTO{" +
+                "username='" + username + '\'' +
+                ", firstTwit=" + firstTwit +
+                '}';
+    }
 }

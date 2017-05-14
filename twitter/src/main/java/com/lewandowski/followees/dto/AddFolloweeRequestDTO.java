@@ -14,4 +14,11 @@ public class AddFolloweeRequestDTO {
     public void setFolloweeId(Long followeeId) {
         this.followeeId = followeeId;
     }
+
+    @Override
+    public String toString() {
+        return "AddFolloweeRequestDTO{" +
+                "followeeId=" + followeeId +
+                '}';
+    }
 }
