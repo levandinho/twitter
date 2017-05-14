@@ -79,7 +79,7 @@ The ```query``` parameter is optional, when provided - the filter ``` username l
 5. To follow a user sent a POST request to http://localhost:8080/users/1/followees/ with a json body containing the ```followeeId``` property, like:
 ```
 {
-	"followeeId":"2"
+    "followeeId":"2"
 }
 ```
 6. To stop following a user send a DELETE request to ```http://localhost:8080/users/1/followees/<FOLLOWEE ID>```
