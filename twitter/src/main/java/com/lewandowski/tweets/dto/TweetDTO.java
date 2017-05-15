@@ -1,5 +1,7 @@
 package com.lewandowski.tweets.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.lewandowski.commons.JsonDateSerializer;
 import com.lewandowski.tweets.util.TweetModuleConstants;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -19,6 +21,7 @@ public class TweetDTO implements Serializable {
 
     private Long authorId;
 
+    @JsonSerialize(using=JsonDateSerializer.class)
     private Date dateAdded;
 
     public TweetDTO() {

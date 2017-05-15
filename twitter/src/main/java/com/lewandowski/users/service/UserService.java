@@ -6,15 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 public interface UserService {
-
-    /**
-     * Allows to find a user by his id
-     *
-     * @param userId an unique identifier of a user we want to retrieve
-     * @return An user object or null if not found
-     */
-    User findById(Long userId);
-
     /**
      * Adds a new user
      *

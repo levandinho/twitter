@@ -25,6 +25,7 @@ public class User {
     private Set<User> followees;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE)
+    @OrderBy("dateAdded DESC")
     private List<Tweet> tweets;
 
     public User(String username) {

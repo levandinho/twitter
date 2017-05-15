@@ -34,7 +34,7 @@ public class FeedsController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<TweetDTO> getFeed(@PathVariable(value = "userId", required = true) Long userId) {
         LOG.info("Received a request for getFeed for user " + userId);
-        User user = userService.findById(userId);
+        User user = userService.getUser(userId);
         List<Tweet> tweets = feedService.getFeed(user);
         LOG.debug("returning tweets: " + tweets);
         return tweetMapper.mapEntityToDto(tweets);
