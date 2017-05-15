@@ -19,7 +19,7 @@ API Guide:
 
 1. Registering a new user is bound together with posting the first message.
 
-Send POST request to ``` http://localhost:8080/users/new/tweets/``` Sample Body looks like that:
+Send POST request to http://localhost:8080/users/new/tweets/ Sample Body looks like that:
 ```
 {  
    "username":"michal",
@@ -54,7 +54,7 @@ The response will contain details of the new tweet:
 
 ```
 
-3. You can also see your Wall - a list of all your Tweets in a reverse chronological order. Send a GET request to ```http://localhost:8080/users/1/tweets/```  
+3. You can also see your Wall - a list of all your Tweets in a reverse chronological order. Send a GET request to http://localhost:8080/users/1/tweets/ 
 The response will look like this:
 ```
 [
@@ -72,7 +72,7 @@ The response will look like this:
   }
 ]
 ```
-4. To get a list of all users in the system, send a GET request to ```http://localhost:8080/users/?query=ma```
+4. To get a list of all users in the system, send a GET request to http://localhost:8080/users/?query=ma
 The ```query``` parameter is optional, when provided - the filter ``` username like %query%``` will be applied. Otherwise, unfiltered list will be returned
 
 5. To follow a user sent a POST request to http://localhost:8080/users/1/followees/ with a json body containing the ```followeeId``` property, like:
@@ -81,7 +81,7 @@ The ```query``` parameter is optional, when provided - the filter ``` username l
     "followeeId":"2"
 }
 ```
-6. To stop following a user send a DELETE request to ```http://localhost:8080/users/1/followees/<FOLLOWEE ID>```
+6. To stop following a user send a DELETE request to http://localhost:8080/users/1/followees/<FOLLOWEE ID>
 7. To view a Timeline (a list of all tweets created by the people you follow in a reverse chronological order) send a GET request to 
 
 ```http://localhost:8080/users/1/feed/```
