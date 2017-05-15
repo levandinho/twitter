@@ -81,7 +81,7 @@ The ```query``` parameter is optional, when provided - the filter ``` username l
     "followeeId":"2"
 }
 ```
-6. To stop follfdowing a user send a DELETE request to http://localhost:8080/users/1/followees/2 ,where 2 is an id of user you would like to unfollow.
+6. To stop following a user send a DELETE request to http://localhost:8080/users/1/followees/2 ,where 2 is an id of user you would like to unfollow.
 7. To view a Timeline (a list of all tweets created by the people you follow in a reverse chronological order) send a GET request to 
 
 ```http://localhost:8080/users/1/feed/```
