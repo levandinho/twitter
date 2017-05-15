@@ -21,12 +21,11 @@ API Guide:
 
 Send POST request to ``` http://localhost:8080/users/new/tweets/``` Sample Body looks like that:
 ```
-{
-  "username":"michal",
-  "firstTweet":
-  {
-    "message": "This is my first tweet"
-  }	
+{  
+   "username":"michal",
+   "firstTweet":{  
+      "message":"This is my first twit!"
+   }
 }
 ```
 
@@ -40,17 +39,17 @@ The response will contain a json object with the id of the newly created user:
 
 2. Once you have your user created, you can freely add new tweets by sending a POST request to ```http://localhost:8080/users/<ID>/tweets/ ```, where <ID> is the ID of your user. The sample body looks like that:
 ```
-{
-  "message": "Second Tweet"
+{  
+   "message":"second tweet!"
 }
 ```
-The repsponse will contain details of the new tweet:
+The response will contain details of the new tweet:
 ```
-{
+ {
   "id": 2,
-  "message": "Second Tweet",
+  "message": "second tweet!",
   "authorId": 1,
-  "dateAdded": 1494770752104
+  "dateAdded": "2017-05-15 14:44:28"
 }
 
 ```
@@ -61,15 +60,15 @@ The response will look like this:
 [
   {
     "id": 2,
-    "message": "Second Tweet",
+    "message": "second tweet!",
     "authorId": 1,
-    "dateAdded": 1494770752104
+    "dateAdded": "2017-05-15 14:44:28"
   },
   {
     "id": 1,
-    "message": "This is my first tweet",
+    "message": "This is my first twit!",
     "authorId": 1,
-    "dateAdded": 1494770746407
+    "dateAdded": "2017-05-15 14:41:45"
   }
 ]
 ```
