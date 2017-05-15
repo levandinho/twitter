@@ -37,7 +37,7 @@ The response will contain a json object with the id of the newly created user:
 }
 ```
 
-2. Once you have your user created, you can freely add new tweets by sending a POST request to ```http://localhost:8080/users/<ID>/tweets/ ```, where <ID> is the ID of your user. The sample body looks like that:
+2. Once you have your user created, you can freely add new tweets by sending a POST request to http://localhost:8080/users/<ID>/tweets/ , where <ID> is the ID of your user. The sample body looks like that:
 ```
 {  
    "message":"second tweet!"
