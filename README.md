@@ -19,7 +19,7 @@ API Guide:
 
 1. Registering a new user is bound together with posting the first message.
 
-Send POST request to http://localhost:8080/users/new/tweets/ Sample Body looks like that:
+Send POST request to http://localhost:8080/users/new/tweets/.Sample Body looks like that:
 ```
 {  
    "username":"michal",
