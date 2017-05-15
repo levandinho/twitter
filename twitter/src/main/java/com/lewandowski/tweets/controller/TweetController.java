@@ -38,14 +38,14 @@ public class TweetController {
         return tweetMapper.mapEntityToDto(tweet);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<TweetDTO> getTweets(@PathVariable(value = "userId", required = true) Long userId) {
         LOG.info("Received a request for getTweets with user id " + userId);
         List<TweetDTO> results = tweetMapper.mapEntityToDto(tweetService.getTweetsForUser(userId));
         return results;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public TweetDTO saveTweet(@PathVariable("userId") Long userId, @RequestBody @Valid TweetDTO tweetDTO) {
         LOG.info("Received a request for saveTweet: " + tweetDTO);
         User user = userService.getUser(userId);

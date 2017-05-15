@@ -48,7 +48,7 @@ public class UserController {
         LOG.info("user with id " + userId + " Successfully deleted");
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<UserDTO> findUsers(@RequestParam(value = "query", required = false) String query) {
         LOG.info("Received a request for findUsers with username query: " + query);
         List<User> users = userService.find(query);

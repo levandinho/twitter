@@ -31,7 +31,7 @@ public class FeedsController {
     @Autowired
     private TweetMapper tweetMapper;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<TweetDTO> getFeed(@PathVariable(value = "userId", required = true) Long userId) {
         LOG.info("Received a request for getFeed for user " + userId);
         User user = userService.getUser(userId);

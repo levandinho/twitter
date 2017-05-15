@@ -26,7 +26,7 @@ public class FolloweesController {
     @Autowired
     private UserMapper userMapper;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<UserDTO> getFollowees(@PathVariable(value = "userId", required = true) Long userId) {
         LOG.info("Received a request for getFollowees for user " + userId);
         Set<User> folowees = userService.getFollowers(userId);
@@ -34,7 +34,7 @@ public class FolloweesController {
         return userMapper.mapEntityToDto(folowees);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public UserDTO addFollowee(@PathVariable(value = "userId", required = true) Long userId, @RequestBody @Valid AddFolloweeRequestDTO requestDTO) {
         LOG.info("Received a request for addFollowee for user " + userId + ": " + requestDTO);
         return userMapper.mapEntityToDto(userService.addFollowee(userId, requestDTO.getFolloweeId()));
