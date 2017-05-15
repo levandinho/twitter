@@ -10,7 +10,7 @@ Clone the repository, then in the root directory (where the pom.xml is located) 
 	./mvnw spring-boot:run
 ```
 
-Simpler way is to download the .jar file ```twitter-1.0.jar ``` (https://drive.google.com/file/d/0B-sQfCIWQJaOdUt0MXJHR3pqaUE/view?usp=sharing) and invoke   
+Simpler way is to download the .jar file ```twitter-1.0.jar ``` (https://drive.google.com/file/d/0B-sQfCIWQJaOMC12LXQ3c01rQlk/view?usp=sharing) and invoke   
 ```java -jar <PATH TO DOWNLOADED JAR>```
 
 Twitter should be now accessible under ```http://localhost:8080/>```
