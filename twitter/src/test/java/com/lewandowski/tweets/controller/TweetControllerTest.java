@@ -2,12 +2,14 @@ package com.lewandowski.tweets.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lewandowski.commons.GlobalConstants;
 import com.lewandowski.tweets.TweetTestConstants;
 import com.lewandowski.tweets.dto.TweetDTO;
 import com.lewandowski.tweets.service.TweetService;
 import com.lewandowski.users.entity.User;
 import com.lewandowski.users.service.UserService;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import java.text.SimpleDateFormat;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -35,7 +39,12 @@ public class TweetControllerTest {
     @Autowired
     private UserService userService;
 
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private static ObjectMapper objectMapper = new ObjectMapper();
+
+    @BeforeClass
+    public static void init() {
+        objectMapper.setDateFormat(new SimpleDateFormat(GlobalConstants.DATE_FORMAT));
+    }
 
     @Test
     public void should_save_tweet_given_correct_values() throws Exception {
