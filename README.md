@@ -19,7 +19,7 @@ API Guide:
 
 1. Registering a new user is bound together with posting the first message.
 
-Send POST request to http://localhost:8080/users/new/tweets/ .Sample Body looks like that:
+Send POST request to http://localhost:8080/users/new/tweets .Sample Body looks like that:
 ```
 {  
    "username":"michal",
@@ -37,7 +37,7 @@ The response will contain a json object with the id of the newly created user:
 }
 ```
 
-2. Once you have your user created, you can freely add new tweets by sending a POST request to http://localhost:8080/users/1/tweets/  , where 1 is the example ID of the user. The sample body looks like that:
+2. Once you have your user created, you can freely add new tweets by sending a POST request to http://localhost:8080/users/1/tweets  , where 1 is the example ID of the user. The sample body looks like that:
 ```
 {  
    "message":"second tweet!"
@@ -54,7 +54,7 @@ The response will contain details of the new tweet:
 
 ```
 
-3. You can also see your Wall - a list of all your Tweets in a reverse chronological order. Send a GET request to http://localhost:8080/users/1/tweets/ 
+3. You can also see your Wall - a list of all your Tweets in a reverse chronological order. Send a GET request to http://localhost:8080/users/1/tweets 
 The response will look like this:
 ```
 [
@@ -75,7 +75,7 @@ The response will look like this:
 4. To get a list of all users in the system, send a GET request to http://localhost:8080/users/?query=ma
 The ```query``` parameter is optional, when provided - the filter ``` username like %query%``` will be applied. Otherwise, unfiltered list will be returned
 
-5. To follow a user sent a POST request to http://localhost:8080/users/1/followees/ with a json body containing the ```followeeId``` property, like:
+5. To follow a user sent a POST request to http://localhost:8080/users/1/followees with a json body containing the ```followeeId``` property, like:
 ```
 {
     "followeeId":"2"
@@ -84,7 +84,7 @@ The ```query``` parameter is optional, when provided - the filter ``` username l
 6. To stop following a user send a DELETE request to http://localhost:8080/users/1/followees/2 ,where 2 is an id of user you would like to unfollow.
 7. To view a Timeline (a list of all tweets created by the people you follow in a reverse chronological order) send a GET request to 
 
-```http://localhost:8080/users/1/feed/```
+http://localhost:8080/users/1/feed
 
 
 
